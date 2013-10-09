@@ -137,10 +137,11 @@ def checksum():
     reportFile.write("# checksum performed on: " + str(dt.datetime.now()) + " for directory path: " + searchPath + " with manifest file: " + mf + "\n");
     reportFile.write("# tested: " + str(fileCount) + "\n");
     reportFile.write("# violations: " + str(len(violate)) + "\n");
-
     for key,value in violate.iteritems():
-        reportFile.write( key + "," + value);
+        reportFile.write( key + "," + str(value) + "\n");
     reportFile.close();
+    print "Total files tested: " + str(fileCount);
+    print "Total violations: " + str(len(violate));
     return len(violate);
 
 def main():
